@@ -79,9 +79,9 @@ const Pilihan = ({
               >
                 <SelectDragIndicator />
               </SelectDragIndicatorWrapper>
-              <SelectItem label={"Dummy"} value={null} />
-              <SelectItem label={"Dummy"} value={null} />
-              <SelectItem label={"Dummy"} value={null} />
+              {datas.map((data, index) => (
+                <SelectItem key={index} label={data} value={data} />
+              ))}
             </SelectContent>
           </SelectPortal>
         </Select>

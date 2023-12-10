@@ -1,11 +1,17 @@
 import { StyleSheet, View } from "react-native";
 import React, { Component } from "react";
 import { IconLogo } from "../../assets";
+import { getData } from "../../utils/localStorage";
 
 export default class Splash extends Component {
   componentDidMount() {
-    setTimeout(() => {
-      this.props.navigation.navigate("Login");
+    setTimeout(async () => {
+      const userData = await getData("user");
+      if (userData) {
+        this.props.navigation.replace("MainApp");
+      } else {
+        this.props.navigation.navigate("Login");
+      }
     }, 3000);
   }
 
